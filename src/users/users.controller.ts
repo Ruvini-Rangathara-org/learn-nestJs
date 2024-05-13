@@ -1,42 +1,36 @@
 import {Body, Controller, Delete, Get, Param, Patch, Post, Query} from '@nestjs/common';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
 
-    @Get()
-    getUsers() {
-        return 'All users';
+    constructor(private readonly usersService: UsersService) {
     }
 
     @Get(':id')
-    getUser() {
-        return 'A user';
-    }
-
-    @Get('/interns')
-    getInterns() {
-        return 'All interns';
+    findOne(@Param('id') id: string) {
+        return this.usersService.findOne(+id);
     }
 
     @Post()
-    createUser(@Body() user: {})  {
-        return user;
+    createUser(@Body() user: {name: string, email: string, role: 'ADMIN' | 'USER' | 'INTERN'  })  {
+        return this.usersService.create(user);
     }
 
     @Patch(':id')   // http://localhost:3000/users/1
-    updateUser(@Param('id') id: string, @Body() userUpdate: {}) {
-        return {id, ...userUpdate};
+    updateUser(@Param('id') id: string, @Body() userUpdate:{name?: string, email?: string, role?: 'ADMIN' | 'USER' | 'INTERN'  }) {
+        return this.usersService.update(+id, userUpdate);
     }
 
     @Delete(':id')
     deleteUser(@Param('id') id: string) {
-        return `User ${id} deleted`;
+        return this.usersService.delete(+id);
     }
 
 
     @Get()     // GET  /users?role=INTERN
-    findAll(@Query('role') role ?: 'INTERN' | 'EMPLOYEE' | 'ADMIN') {
-        return `This action returns all users with role: ${role}`;
+    findAll(@Query('role') role ?: 'INTERN' | 'USER' | 'ADMIN') {
+        return this.usersService.findAll(role);
     }
 
 }
