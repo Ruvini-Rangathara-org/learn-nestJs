@@ -1,4 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class UsersService {
@@ -39,10 +42,14 @@ export class UsersService {
     }
 
     findOne(id: number) {
-        return this.users.find(user => user.id === id)
+        const user = this.users.find(user => user.id === id);
+        if(!user){
+            throw new NotFoundException(`User with id ${id} not found`)
+        }
+        return user;
     }
 
-    create(user: {name: string, email: string, role: 'ADMIN' | 'USER' | 'INTERN'  }) {
+    create(user: CreateUserDto) {
         const userByHighestId = [...this.users].sort((a, b) => b.id - a.id);
         const newUser = {
             id: userByHighestId[0].id + 1,
@@ -52,7 +59,7 @@ export class UsersService {
         return newUser;
     }
 
-    update(id: number, updatedUser: {name?: string, email?: string, role?: 'ADMIN' | 'USER' | 'INTERN'  }) {
+    update(id: number, updatedUser: UpdateUserDto) {
         this.users = this.users.map(user => {
             if(user.id === id) {
                 return {
