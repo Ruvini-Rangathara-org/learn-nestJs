@@ -1,99 +1,116 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<h1 align="center">NestJS Tutorial for Beginners</h2>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+ 
 
-## Installation
+This project serves as a starting point for learning NestJS, a powerful framework for building server-side applications with Node.js. It leverages the concepts and examples presented in a comprehensive YouTube tutorial : https://www.youtube.com/watch?v=8_X0nSrzrCw&t=1277s
+
+**What is NestJS?**
+
+NestJS is a progressive Node.js framework heavily inspired by Angular. It embraces a modular and layered architecture, promoting clean code separation and maintainability. NestJS provides features like:
+
+* Dependency injection
+* Routing
+* Controllers
+* Services
+* Middleware
+* Exception handling
+* Built-in testing capabilities
+
+**Getting Started**
+
+This tutorial assumes you have Node.js and npm (or yarn) installed on your system. Here's how to get started:
+
+1. **Clone this repository:**
+
+   ```bash
+   git clone https://github.com/Ruvini-Rangathara-org/learn-nestJs.git
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   cd your-project-name
+   npm install
+   ```
+   (or `yarn install` if using yarn)
+
+3. **Start the development server:**
+
+   ```bash
+   npm run start:dev
+   ```
+   (or `yarn start:dev`)
+
+   This will start the NestJS application in development mode, automatically restarting the server when you make changes to your code.
+
+**Following the Tutorial**
+
+The provided YouTube tutorial https://www.youtube.com/watch?v=8_X0nSrzrCw&t=1277s  guides you through various NestJS functionalities step-by-step. It covers topics like:
+
+* Setting up a NestJS project
+* Creating a logger service
+* Implementing an all exceptions filter
+* Using Prisma with NestJS
+* ... and more!
+
+**Additional Resources**
+
+* **API Documentation for Employee :** https://documenter.getpostman.com/view/28283365/2sA3JQ5Km4
+
+* **NestJS Documentation :** [https://docs.nestjs.com/](https://docs.nestjs.com/)
+
+* **NestJS GitHub Repository :** [https://github.com/nestjs](https://github.com/nestjs)
+
+
+
+## 
+
+
+### Usefull commands
 
 ```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
-
-
 nest g module users
+
 nest g controller users
+
 nest g service users
+```
 
+* **commands for prisma**
+```bash
+npm i prisma -D
+npx prisma init
+```
 
-//commands for prisma
-// npm i prisma -D
-// npx prisma init
+```bash
+npx prisma migrate dev --name init
+```
 
-// npx prisma migrate dev --name init
+* **When changes are made to the schema**
+```bash
+npx prisma generate
+npx prisma migrate dev --name [name_change]
+```
 
-// when changes are made to the schema
-// npx prisma generate
-// npx prisma migrate dev --name [name_change]
-
+```bash
 nest g module database
 nest g service database
+```
 
+```bash
 nest g resource employees
 REAST API , y
+```
 
 
-//rate limiting 
+* **rate limiting**
+```bash
 npm i --save @nestjs/throttler
+```
+
+##
