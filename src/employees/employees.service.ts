@@ -28,9 +28,8 @@ export class EmployeesService {
     });
   }
 
-  async update(id: number, updateEmployeeDto: Prisma.EmployeeUpdateInput) {
-    return 
-    this.databaseService.employee.update({
+  async update(id: number, updateEmployeeDto: Prisma.EmployeeUpdateInput) {  
+    return this.databaseService.employee.update({
       where: {
         id,
       },
