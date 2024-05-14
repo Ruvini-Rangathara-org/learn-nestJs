@@ -93,3 +93,7 @@ nest g service database
 
 nest g resource employees
 REAST API , y
+
+
+//rate limiting 
+npm i --save @nestjs/throttler
